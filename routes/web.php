@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Canal;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $datos = Canal::all();
+    return view('welcome', compact('datos'));
 });
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/canal/{id}/dispositivos', [App\Http\Controllers\DispositivoController::class, 'dispositivos']);
+Route::get('/canales', [App\Http\Controllers\CanalController::class, 'canales']);
+Route::post('/canal-registro', [App\Http\Controllers\CanalController::class, 'registroCanal']);
