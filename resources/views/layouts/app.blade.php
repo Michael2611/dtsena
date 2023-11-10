@@ -40,6 +40,8 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
         <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
     @endif
 
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
 </head>
 
 <body
@@ -75,40 +77,36 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
             <!-- /.navbar -->
 
             <!-- Main Sidebar Container -->
-            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <aside class="main-sidebar elevation-4" style="background-color: #385C57">
                 <!-- Brand Logo -->
-                <a href="#" class="brand-link text-center">
-                    <span class="brand-text font-weight-light">DTSENA</span>
+                <a href="#" class="text-center text-white">
+                    <h3 class="mt-4 fw-bold"><i class="fas fa-server"></i> DTSENA</h3>
                 </a>
-
+                <hr>
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div class="image">
-                            <img src="" class="img-circle" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block">Michael Rodriguez</a>
-                        </div>
+                    <div class="user-panel mb-3">
+                        <a href="#" class="d-block text-center text-white">Sesión: Michael Rodriguez</a>
                     </div>
+                    <hr>
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ URL::to('/canales') }}" class="nav-link">
                                     <i class="nav-icon fas fa-th"></i>
-                                    <p>
-                                        Dispositivos
+                                    <p class="text-white">
+                                        Canales
                                         <span class="right badge badge-info">Add</span>
                                     </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-tree"></i>
-                                    <p>
+                                    <p class="text-white">
                                         UI Elements
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
@@ -163,7 +161,7 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li>-->
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
@@ -190,6 +188,8 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
         </aside>
         </div>
 
+        <!-- jQuery -->
+        <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
         <!-- jQuery UI 1.11.4 -->
         <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -204,11 +204,8 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
         <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
         <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
         <!-- AdminLTE for demo purposes -->
-        <script src="{{ asset('js/demo.js') }}"></script>
     @endif
 
-    <!-- jQuery -->
-    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->

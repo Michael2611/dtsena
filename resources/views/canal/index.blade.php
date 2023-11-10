@@ -18,19 +18,25 @@
                                 <th>---</th>
                             </thead>
                             <tbody>
+                                <?php $i=1;?>
                                 @foreach ($canales as $item)
                                     <tr>
-                                        <td>{{$item->id}}</td>
+                                        <td>{{$i++}}</td>
                                         <td>{{$item->c_nombre}}</td>
                                         <td>{{$item->c_estado_vista}}</td>
                                         <td>{{$item->created_at}}</td>
                                         <td>{{$item->updated_at}}</td>
                                         <td>
-                                            <div class="d-flex gap-10">
-                                                <button class="btn btn-primary btn-sm">Dispositivos</button>
-                                                <button class="btn btn-info btn-sm">Editar</button>
-                                                <button class="btn btn-danger btn-sm">Eliminar</button>
-                                                <button class="btn btn-secondary btn-sm">Ver</button>
+                                            <div class="d-flex justify-content-around">
+                                                <a class="btn btn-primary btn-sm" href="{{route('canal.info', $item->id)}}"><i class="fas fa-desktop"></i> Dispositivos</a>
+                                                <a class="btn btn-info btn-sm" href="{{route('canal.editar', $item->id)}}"><i class="far fa-edit"></i> Editar</a>
+                                                <form action="{{route('canal.eliminar', $item->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <input readonly type="hidden" name="d_id_canal" id="d_id_canal" value="{{$item->id}}">
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-ban"></i> Eliminar</button>
+                                                </form>
+                                                <button class="btn btn-secondary btn-sm"><i class="far fa-eye"></i> Ver</button>
                                             </div>
                                         </td>
                                     </tr>

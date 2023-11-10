@@ -17,4 +17,8 @@ class Datos extends Model
         'da_valor',
     ];
 
+    public function dispositivo(){
+        return $this->belongsTo(Dispositivo::class, 'da_id_dispositivo');
+    }
+
 }

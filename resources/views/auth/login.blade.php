@@ -1,8 +1,16 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    body{
+        background-image: url('img/fondo.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+    }
+</style>
 <div class="login-box">
     <!-- /.login-logo -->
-    <div class="card card-outline card-primary">
+    <div class="card card-outline card-primary mt-4">
       <div class="card-header text-center">
         <a href="../../index2.html" class="h1"><b>DT</b>SENA</a>
       </div>

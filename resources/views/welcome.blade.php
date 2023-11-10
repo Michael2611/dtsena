@@ -46,7 +46,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                <h3>{{$dispositivos_n->count()}}</h3>
 
                                 <p>Total dispostivos</p>
                             </div>
@@ -59,31 +59,6 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <!-- Main row -->
-                <div class="row">
-                    <!-- Left col -->
-                    <section class="col-lg-7 connectedSortable">
-                        <!-- DIRECT CHAT -->
-                        <div class="card direct-chat direct-chat-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">Direct Chat</h3>
-                                <div class="card-tools">
-                                    <span title="3 New Messages" class="badge badge-primary">3</span>
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                    </section>
-                </div>
                 <!-- /.row (main row) -->
             </div><!-- /.container-fluid -->
         </section>

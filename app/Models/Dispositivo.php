@@ -17,4 +17,8 @@ class Dispositivo extends Model
         'd_nombre',
     ];
 
+    public function datos(){
+        return $this->hasMany(Datos::class, 'da_id_dispositivo');
+    }
+
 }
