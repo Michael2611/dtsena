@@ -22,7 +22,7 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 
-    @if ($rutaActual != '/login')
+    @if ($rutaActual != '/login' && $rutaActual != '/registro')
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Tempusdominus Bootstrap 4 -->
@@ -45,9 +45,9 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
 </head>
 
 <body
-    class="{{ $rutaActual == '/login' ? 'hold-transition login-page' : 'hold-transition sidebar-mini layout-fixed' }}">
+    class="{{ $rutaActual == '/login' && '/registro' ? 'hold-transition login-page' : 'hold-transition sidebar-mini layout-fixed' }}">
 
-    @if ($rutaActual != '/login')
+    @if ($rutaActual != '/login' && $rutaActual != '/registro')
         <div class="wrapper">
             <!-- Navbar -->
             <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -62,6 +62,9 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="#" class="nav-link">Ayuda</a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="{{route('logout')}}" class="nav-link">Cerrar sesión</a>
                     </li>
                 </ul>
 
@@ -87,7 +90,7 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mb-3">
-                        <a href="#" class="d-block text-center text-white">Sesión: Michael Rodriguez</a>
+                        <a href="#" class="d-block text-center text-white">Sesión: {{Auth::user()->name}}</a>
                     </div>
                     <hr>
                     <!-- Sidebar Menu -->
@@ -173,7 +176,7 @@ $rutaActual = parse_url($url, PHP_URL_PATH);
     @yield('content')
     <!-- /.login-box -->
 
-    @if ($rutaActual != '/login')
+    @if ($rutaActual != '/login' && $rutaActual != '/registro')
         <footer class="main-footer">
             <strong>Copyright &copy; 2023 <a href="#">Michael Rodriguez</a>.</strong>
             Todos los derechos reservados.

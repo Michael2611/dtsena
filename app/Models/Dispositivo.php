@@ -15,6 +15,8 @@ class Dispositivo extends Model
         'id',
         'd_id_canal',
         'd_nombre',
+        'd_name_connect',
+        'd_key',
     ];
 
     public function datos(){

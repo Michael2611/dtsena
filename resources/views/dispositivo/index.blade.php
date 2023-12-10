@@ -48,8 +48,8 @@
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
-                                            <div class="chart{{ $item->d_key_connect }}"
-                                                id="chart{{ $item->d_key_connect }}"></div>
+                                            <div class="chart{{ $item->d_key }}"
+                                                id="chart{{ $item->d_key }}"></div>
                                             <script>
                                                 var valoresSensores = [];
                                                 var fechasRegistro = [];
@@ -61,7 +61,7 @@
 
                                                 console.log(valoresSensores);
 
-                                                Highcharts.chart('chart{{ $item->d_key_connect }}', {
+                                                Highcharts.chart('chart{{ $item->d_key }}', {
                                                     title: {
                                                         text: '{{ $item->d_nombre }}',
                                                         align: 'left'
@@ -144,7 +144,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body">
-                                            <p>Key Connect: {{ $item->d_key_connect }}</p>
+                                            <p>Key Connect: {{ $item->d_key }}</p>
                                             <p>Fecha registro: {{ $item->created_at }}</p>
                                             <p>Fecha ultima actualización: {{ $item->updated_at }}</p>
                                             <a class="btn btn-primary" href="#">Ver datos</a>

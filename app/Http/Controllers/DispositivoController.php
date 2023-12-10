@@ -24,9 +24,11 @@ class DispositivoController extends Controller
         $d_id_canal = $request->input('d_id_canal');
         $d_nombre = $request->input('d_nombre');
 
+        $d_name_connect = str_replace(" ", "", $d_nombre);
+
         $key_connect = Str::random(32);
 
-        $dispositivos = DB::table('dispositivo')->where('d_key_connect', $key_connect)->get();
+        $dispositivos = DB::table('dispositivo')->where('d_key', $key_connect)->get();
 
         while($dispositivos->count()>1){
             $key_connect = Str::random(32);
@@ -35,7 +37,8 @@ class DispositivoController extends Controller
         $dispositivo = new Dispositivo();
         $dispositivo->d_id_canal = $d_id_canal;
         $dispositivo->d_nombre = $d_nombre;
-        $dispositivo->d_key_connect = $key_connect;
+        $dispositivo->d_name_connect = $d_name_connect;
+        $dispositivo->d_key = $key_connect;
         $dispositivo->save();
         return back();
     }

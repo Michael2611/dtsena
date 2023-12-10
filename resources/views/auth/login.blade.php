@@ -10,16 +10,17 @@
 </style>
 <div class="login-box">
     <!-- /.login-logo -->
+
     <div class="card card-outline card-primary mt-4">
       <div class="card-header text-center">
-        <a href="../../index2.html" class="h1"><b>DT</b>SENA</a>
+        <a href="/" class="h1"><b>DT</b>SENA</a>
       </div>
       <div class="card-body">
-        <p class="login-box-msg">Inicio de sesión</p>
-
-        <form action="../../index3.html" method="post">
+        <p class="login-box-msg">Inicio de sesión </p>
+        <form action="{{URL::to('/login-user')}}" method="post">
+            @csrf
           <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Correo electronico">
+            <input type="email" class="form-control" name="email" placeholder="Correo electronico">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -27,7 +28,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Contraseña">
+            <input type="password" class="form-control" name="password" placeholder="Contraseña">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -47,7 +48,7 @@
           <a href="#">Recuperar contraseña</a>
         </p>
         <p class="mb-0 text-center">
-          <a href="#" class="text-center">Registrar nuevo usuario</a>
+          <a href="{{route('auth.registro')}}" class="text-center">Registrar nuevo usuario</a>
         </p>
       </div>
       <!-- /.card-body -->
