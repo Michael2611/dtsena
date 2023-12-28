@@ -37,6 +37,8 @@ Route::get('/canal/{id}', [App\Http\Controllers\CanalController::class, 'canalIn
 Route::get('/canal/{id}/editar', [App\Http\Controllers\CanalController::class, 'editarCanal'])->name('canal.editar');
 Route::put('/canal/{id}', [App\Http\Controllers\CanalController::class, 'actualizarCanal'])->name('canal.actualizar');
 
+Route::post('/datos-registro', [App\Http\Controllers\DatosController::class, 'registroData'])->name('datos.registro');
+
 Route::post('/dispositivo-registro', [App\Http\Controllers\DispositivoController::class, 'registroDispositivo'])->name('dispositivo.registro');
 Route::delete('/dispositivo/{id}', [App\Http\Controllers\DispositivoController::class, 'eliminarDispositivo'])->name('dispositivo.eliminar');
 
